@@ -1,0 +1,47 @@
+[project]
+name = "prx-practical-lab"
+version = "2025.0.1"
+authors = [
+  {name = "Paul Thevenon", email = "thevenon@recherche.enac.fr"},
+]
+requires-python = ">= 3.13"
+dependencies = [
+  "netcdf4",
+  "pip",
+  "jupyter",
+  "xarray",
+  "ipykernel",
+  "scipy",
+  "matplotlib>=3.8",
+  "dask",
+  "numpy",
+  "pandas",
+  "ipympl",
+  "nbstripout",
+  "ruff",
+  "pytest",
+  "tqdm",
+  "pyarrow>=16.0.0",
+  "plotly",
+  "pytest-xdist>=3.8.0",
+  "polars>=2.0.0,<3.0.0",
+  "altair>=5.4.0",
+  "vegafusion>=2.0.0",
+  "vl-convert-python>=1.9.0",
+  "prx",
+  "pyproj",
+  "fontTools",
+  "pymap3d>=3.2.0",
+  "scikit-image>=0.25.2",
+#  "bezier>=2024.6.20",
+  "geopandas>=1.1.1",
+]
+
+[tool.uv.sources]
+prx = { git = "https://github.com/navforge/prx", branch = "main" }
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
+[tool.ruff]
+extend-exclude = ["notebooks_old", "*.ipynb"]
