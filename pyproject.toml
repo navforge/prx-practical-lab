@@ -1,0 +1,57 @@
+[project]
+name = "prx-practical-lab"
+version = "2025.0.1"
+authors = [
+  {name = "Paul Thevenon", email = "thevenon@recherche.enac.fr"},
+  {name = "Jan Bolting"},
+]
+requires-python = ">= 3.13"
+dependencies = [
+  "jupyter",
+  "ipykernel",
+  "scipy",
+  "matplotlib>=3.8",
+  "numpy",
+  "pandas",
+  "ipympl",
+  "nbstripout",
+  "ruff",
+  "pytest",
+  "tqdm",
+  "pyarrow>=16.0.0",
+  "plotly",
+  "pytest-xdist>=3.8.0",
+  "polars>=2.0.0,<3.0.0",
+  "altair>=5.4.0",
+  "vegafusion>=2.0.0",
+  "vl-convert-python>=1.9.0",
+  "prx",
+  "pyproj",
+  "fontTools",
+  "pymap3d>=3.2.0",
+  "scikit-image>=0.25.2",
+  "geopandas>=1.1.1",
+  "argon2-cffi>=25.1.0",
+]
+
+[tool.uv]
+  package = true
+
+[project.scripts]
+latlon-hash = "src.helpers:lat_lon_hash_cli"
+
+[tool.uv.sources]
+prx = { git = "https://github.com/navforge/prx", branch = "main" }
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
+[tool.ruff]
+extend-exclude = ["*.ipynb"]
